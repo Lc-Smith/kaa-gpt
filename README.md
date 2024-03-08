@@ -3,9 +3,9 @@ Discord Bot utilising OpenAI's GPT-4 API.
 
 Requirements:
 
-Typical updated Node.js and Discord.js modules.
+- Updated Node.js and Discord.js modules.
 
-".env" file with:
+- ".env" file with:
 
 TOKEN = your bot's token
 
