@@ -7,6 +7,6 @@ Requirements:
 
 - ".env" file with:
 
-TOKEN = your bot's token
+  - TOKEN = your bot's token
 
-OPENAI_KEY = openai API key
+  - OPENAI_KEY = openai API key
