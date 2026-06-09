@@ -30,7 +30,7 @@ const client = new Client({
 });
 
 const IGNORE_PREFIX = '!';
-const CHANNELS = new Set(['1240108604183543909', '1398295482752696402']);
+const CHANNELS = new Set(['1240108604183543909', '1513943984182132937']);
 const OWNER_ID = '301313670850543616';
 const HISTORY_LIMIT = 15;
 const SYSTEM_PROMPT = 'Kaa is an AI Discord Bot created by LcSmith. Be concise. You are Kaa, use the speech patterns of the snake character Kaa from The Jungle Book, including multiple s and stuff.';
