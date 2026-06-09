@@ -1,11 +1,10 @@
 // Author: LcSmith
-// Updated: 29/02/2024
+// Updated: 25/07/2025
 
 // Import necessary modules
 require('dotenv/config');
 const { Client } = require('discord.js');
 const { OpenAI } = require('openai');
-const { generateKaaResponse } = require('./kaaPersonality');
 
 // Initialize Discord client
 const client = new Client({
@@ -19,7 +18,7 @@ client.on('ready', () => {
 
 // Constants
 const IGNORE_PREFIX = "!";
-const CHANNELS = ['1204184883300401174', '1213490924127129681'];
+const CHANNELS = ['1240108604183543909', '1398295482752696402'];
 
 // Initialize OpenAI API client
 const openai = new OpenAI({
@@ -42,7 +41,7 @@ client.on('messageCreate', async (message) => {
     let conversation = [];
     conversation.push({
         role: 'system',
-        content: 'Kaa is an AI Discord Bot created by LcSmith.'
+        content: 'Kaa is an AI Discord Bot created by LcSmith. Be concise. You are Kaa, use the speech patterns of the snake character Kaa from The Jungle Book, including multiple s and stuff.'
     });
 
     let prevMessages = await message.channel.messages.fetch({ limit: 30 });
@@ -68,14 +67,14 @@ client.on('messageCreate', async (message) => {
             conversation.push({
                 role: 'user',
                 name: username,
-                content: msg.content + "Concise",
+                content: msg.content,
             });
         }
 
         conversation.push({
             role: 'user',
             name: username,
-            content: msg.content + "Concise",
+            content: msg.content,
         });
     });
 
@@ -98,8 +97,8 @@ client.on('messageCreate', async (message) => {
 
     for (let i = 0; i < responseMessage.length; i += chunkSizeLimit) {
         const chunk = responseMessage.substring(i, i + chunkSizeLimit);
-        const kaaLikeResponse = generateKaaResponse(chunk); // Generate Kaa-like response
-        await message.reply(kaaLikeResponse);
+
+        await message.reply(chunk);
     }
 });
 
